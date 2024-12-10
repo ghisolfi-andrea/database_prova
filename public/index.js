@@ -5,8 +5,8 @@ const teamSuggestions = new Set();
 
 // Funzioni di Gestione UI
 function toggleVisibility(showId, ...hideIds) {
-    document.getElementById(showId).style.display = 'block';
-    hideIds.forEach(id => document.getElementById(id).style.display = 'none');
+    document.getElementById(showId).classList.add('active');
+    hideIds.forEach(id => document.getElementById(id).classList.remove('active'));
 }
 
 // Funzione per aggiungere una riga nella tabella dei risultati
@@ -21,11 +21,7 @@ function addRow(summaryBody, teamName, totalScore, penalty, insufficient, curren
 
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Elimina';
-    deleteButton.style.backgroundColor = '#f44336';
-    deleteButton.style.color = 'white';
-    deleteButton.style.border = 'none';
-    deleteButton.style.padding = '5px 10px';
-    deleteButton.style.cursor = 'pointer';
+    deleteButton.className = 'delete-button';
     deleteButton.addEventListener('click', () => summaryBody.deleteRow(newRow.rowIndex - 1));
     newRow.insertCell(6).appendChild(deleteButton);
 }
@@ -138,9 +134,11 @@ async function reloadScoresFromBackend() {
     }
 }
 
+// Altri Event Listener
 document.getElementById('reload-data').addEventListener('click', reloadScoresFromBackend);
 
-// Altri Event Listener
 document.getElementById('delete-all').addEventListener('click', () => {
-    document.getElementById('summary-body').innerHTML = '';
+    if (confirm('Sei sicuro di voler eliminare tutti i dati?')) {
+        document.getElementById('summary-body').innerHTML = '';
+    }
 });

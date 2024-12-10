@@ -1,177 +1,189 @@
-/* Variabili CSS */
-:root {
-    --bg-primary: #111;
-    --bg-secondary: #222;
-    --text-primary: #eee;
-    --text-secondary: #ccc;
-    --accent-green: #4CAF50;
-    --accent-green-hover: #45a049;
-    --accent-red: #f44336;
-    --accent-red-hover: #d32f2f;
-    --accent-blue: #008CBA;
-    --accent-blue-hover: #007BB5;
-    --border-color: #444;
-    --shadow-color: rgba(0, 0, 0, 0.5);
+/* Impostazioni generali */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Sfondo nero */
+    color: #fff; /* Testo bianco */
+    margin: 0;
+    padding: 0;
 }
 
-/* Stile di base */
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: Arial, sans-serif;
-    margin: 0;
+main {
     padding: 20px;
-    line-height: 1.6;
+    max-width: 900px;
+    margin: auto;
 }
 
 h1, h2, h3 {
+    color: #00ff00; /* Verde brillante per i titoli */
     text-align: center;
-    color: var(--text-primary);
 }
 
-/* Contenitore principale */
-#app {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--bg-secondary);
-    border-radius: 10px;
-    box-shadow: 0 0 20px var(--shadow-color);
-}
-
-/* Input e campi di testo */
-.input-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-input[type="text"],
-input[type="number"],
-#search {
-    width: 80%;
-    padding: 10px;
-    margin: 10px auto;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    text-align: center;
-    display: block;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-#search:focus {
-    outline: 2px solid var(--accent-blue);
-}
-
-/* Bottoni */
 button {
-    background-color: var(--accent-green);
-    color: var(--text-primary);
-    border: none;
-    padding: 15px 20px;
-    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    display: block;
-    width: 60%;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    border-radius: 4px;
 }
 
 button:hover {
-    background-color: var(--accent-green-hover);
-    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Stile pulsanti */
+button#start-game, button#submit-score, button#reload-data {
+    background-color: #4caf50; /* Verde per azioni principali */
+    color: white;
+}
+
+button#delete-all {
+    background-color: #f44336; /* Rosso per azioni distruttive */
+    color: white;
 }
 
 button.top-right {
     position: absolute;
     top: 10px;
-    right: 20px;
-    background-color: #666;
+    right: 10px;
+    background-color: #555; /* Grigio per pulsanti secondari */
+    color: white;
 }
 
-button.top-right:hover {
-    background-color: #555;
-}
-
-button#delete-all {
-    background-color: var(--accent-red);
-    margin-top: 20px;
-}
-
-button#delete-all:hover {
-    background-color: var(--accent-red-hover);
-}
-
-button#reload-data {
-    background-color: var(--accent-blue);
-    margin-top: 10px;
-}
-
-button#reload-data:hover {
-    background-color: var(--accent-blue-hover);
-}
-
-/* Notifica cookie */
-.cookie-consent {
-    background-color: var(--border-color);
-    color: var(--text-primary);
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
+/* Input e moduli */
+input[type="text"], input[type="number"] {
     width: 100%;
-    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #222;
+    color: #fff;
 }
 
-.cookie-consent button {
-    background-color: var(--accent-red);
+input[type="text"]::placeholder, input[type="number"]::placeholder {
+    color: #888;
 }
 
-.cookie-consent button:hover {
-    background-color: var(--accent-red-hover);
+/* Suggerimenti dinamici */
+.suggestions {
+    border: 1px solid #ccc;
+    background: #333; /* Grigio scuro per i suggerimenti */
+    max-height: 150px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1000;
+    margin-top: -10px;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 1px solid #555;
+}
+
+.suggestion-item:hover {
+    background-color: #444; /* Colore hover */
 }
 
 /* Tabelle */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-th, td {
-    border: 1px solid var(--border-color);
-    padding: 15px;
+table th, table td {
+    border: 1px solid #555;
+    padding: 10px;
     text-align: center;
 }
 
-th {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
+table th {
+    background-color: #333; /* Grigio scuro per l'intestazione */
+    color: #00ff00; /* Verde brillante */
 }
 
-td {
-    background-color: var(--bg-secondary);
+table td {
+    background-color: #222; /* Grigio scuro */
 }
 
-tr:hover {
-    background-color: var(--border-color);
+table .delete-btn {
+    background-color: #f44336; /* Rosso per "Elimina" */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+table .delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Cookie consent */
+#cookie-consent {
+    background-color: #333;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+}
+
+#cookie-consent p {
+    margin: 0;
+    color: #fff;
+}
+
+#accept-cookies {
+    background-color: #4caf50; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+#accept-cookies:hover {
+    background-color: #45a049;
 }
 
 /* Sezioni */
-#summary {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--bg-secondary);
-    border-radius: 10px;
-    box-shadow: 0 0 20px var(--shadow-color);
+section {
+    display: none;
 }
 
+section.active {
+    display: block;
+}
+
+/* Riquadri input squadra */
 .team-input {
     margin: 20px 0;
+}
+
+.team-input h3 {
+    color: #00ff00;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+label input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Responsività */
+@media (max-width: 600px) {
+    input[type="text"], input[type="number"], button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

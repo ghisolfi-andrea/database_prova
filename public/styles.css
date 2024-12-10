@@ -1,0 +1,177 @@
+/* Variabili CSS */
+:root {
+    --bg-primary: #111;
+    --bg-secondary: #222;
+    --text-primary: #eee;
+    --text-secondary: #ccc;
+    --accent-green: #4CAF50;
+    --accent-green-hover: #45a049;
+    --accent-red: #f44336;
+    --accent-red-hover: #d32f2f;
+    --accent-blue: #008CBA;
+    --accent-blue-hover: #007BB5;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Stile di base */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* Contenitore principale */
+#app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* Input e campi di testo */
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+input[type="text"],
+input[type="number"],
+#search {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-align: center;
+    display: block;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+#search:focus {
+    outline: 2px solid var(--accent-blue);
+}
+
+/* Bottoni */
+button {
+    background-color: var(--accent-green);
+    color: var(--text-primary);
+    border: none;
+    padding: 15px 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 60%;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--accent-green-hover);
+    transform: scale(1.05);
+}
+
+button.top-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #666;
+}
+
+button.top-right:hover {
+    background-color: #555;
+}
+
+button#delete-all {
+    background-color: var(--accent-red);
+    margin-top: 20px;
+}
+
+button#delete-all:hover {
+    background-color: var(--accent-red-hover);
+}
+
+button#reload-data {
+    background-color: var(--accent-blue);
+    margin-top: 10px;
+}
+
+button#reload-data:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+/* Notifica cookie */
+.cookie-consent {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.cookie-consent button {
+    background-color: var(--accent-red);
+}
+
+.cookie-consent button:hover {
+    background-color: var(--accent-red-hover);
+}
+
+/* Tabelle */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+td {
+    background-color: var(--bg-secondary);
+}
+
+tr:hover {
+    background-color: var(--border-color);
+}
+
+/* Sezioni */
+#summary {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.team-input {
+    margin: 20px 0;
+}
